@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ноксус - Империя Силы</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Beaufort+for+LOL:wght@400;700&display=swap');
+        body {
+            font-family: 'Beaufort for LOL', serif;
+            background: linear-gradient(to bottom, #1a1a1a, #000);
+            color: white;
+        }
+        .character-card {
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .character-card:hover {
+            transform: scale(1.05);
+        }
+        .character-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            font-size: 1.2rem;
+        }
+        .character-card:hover .character-overlay {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Хедер -->
+    <header class="fixed top-0 left-0 w-full bg-black bg-opacity-80 p-4 flex justify-between items-center z-50">
+        <h1 class="text-3xl font-bold">НОКСУС</h1>
+        <div class="flex items-center space-x-4">
+            <div class="flex space-x-2">
+                <input type="text" placeholder="Логин" class="px-2 py-1 rounded text-black">
+                <input type="password" placeholder="Пароль" class="px-2 py-1 rounded text-black">
+                <button class="bg-blue-600 px-4 py-2 rounded hover:bg-blue-700">Авторизоваться</button>
+            </div>
+            <button onclick="window.location.href='https://authenticate.riotgames.com/?client_id=prod-xsso-leagueoflegends&code_challenge=80CF9DJFYhs-BWEB5CRAscRxDWpHbVUUzZ2obyfJ2dc&method=riot_identity_signup&platform=web&redirect_uri=https%3A%2F%2Fauth.riotgames.com%2Fauthorize%3Fclient_id%3Dprod-xsso-leagueoflegends%26code_challenge%3D80CF9DJFYhs-BWEB5CRAscRxDWpHbVUUzZ2obyfJ2dc%26code_challenge_method%3DS256%26prompt%3Dsignup%26redirect_uri%3Dhttps%3A%2F%2Fxsso.leagueoflegends.com%2Fredirect%26response_type%3Dcode%26scope%3Dopenid%2520account%2520email%2520offline_access%26state%3Db52b3979f4aafc1bb422a16c81%26uri%3Dhttps%3A%2F%2Fsignup.leagueoflegends.com%2Fru%2Fsignup%2Fredownload#/'"
+                class="bg-red-600 px-4 py-2 rounded hover:bg-red-700">
+                Играть
+            </button>
+        </div>
+    </header>
+
+    <main class="mt-16">
+        <!-- Главный экран -->
+        <section class="relative w-full h-screen flex items-center justify-center bg-cover bg-center" 
+            style="background-image: url('https://cmsassets.rgpub.io/sanity/images/dsfx7636/universe/52ec6cbffae67a9a693844dd3f7cc0d960557dca-1920x773.jpg');">
+            <div class="bg-black bg-opacity-70 p-6 text-center max-w-2xl">
+                <h2 class="text-4xl font-bold">Ноксус – Империя Силы</h2>
+                <p class="mt-4 text-lg">Могущественная империя с грозной репутацией, где ценят силу и способности каждого.</p>
+            </div>
+        </section>
+
+        <!-- Карточки персонажей -->
+        <section class="container mx-auto py-12 text-center">
+            <h2 class="text-3xl font-bold mb-6">Величайшие Герои Ноксуса</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 px-4">
+                <!-- Свейн -->
+                <div class="relative character-card">
+                    <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Swain_0.jpg" class="w-full h-96 object-cover rounded-lg">
+                    <div class="character-overlay">
+                        <p>Свейн — Великий генерал Ноксуса, обладающий магией демона и невероятным стратегическим умом.</p>
+                    </div>
+                </div>
+                <!-- Ле Блан -->
+                <div class="relative character-card">
+                    <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Leblanc_0.jpg" class="w-full h-96 object-cover rounded-lg">
+                    <div class="character-overlay">
+                        <p>Ле Блан — мистическая чародейка, мастер иллюзий, управляющая Тёмным Кругом.</p>
+                    </div>
+                </div>
+                <!-- Дариус -->
+                <div class="relative character-card">
+                    <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Darius_0.jpg" class="w-full h-96 object-cover rounded-lg">
+                    <div class="character-overlay">
+                        <p>Дариус — Рука Ноксуса, беспощадный воин, карающий врагов своим гигантским топором.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!DOCTYPE html>
+        <html lang="ru">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <script src="https://cdn.tailwindcss.com"></script>
+            <title>Ноксус</title>
+            <style>
+                .hover-image {
+                    position: relative;
+                    width: 100%;
+                    height: 400px; /* Высота для вытянутых картинок */
+                    overflow: hidden;
+                    border-radius: 12px;
+                }
+        
+                .hover-image img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transition: 0.3s ease-in-out;
+                }
+        
+                .hover-image:hover img {
+                    filter: brightness(50%);
+                }
+        
+                .hover-text {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    font-size: 1.8rem;
+                    font-weight: bold;
+                    color: white;
+                    text-align: center;
+                    opacity: 0;
+                    transition: opacity 0.3s ease-in-out;
+                    width: 80%;
+                }
+        
+                .hover-image:hover .hover-text {
+                    opacity: 1;
+                }
+            </style>
+        </head>
+        <body class="bg-black text-white">
+            
+            <section class="grid grid-cols-1 md:grid-cols-2 gap-6 container mx-auto py-12">
+                <div class="hover-image">
+                    <img src="https://cmsassets.rgpub.io/sanity/images/dsfx7636/universe_live/3c614aeee79861717acea73ecaf74564ff87f168-1472x1080.jpg" alt="Ноксус 1">
+                    <div class="hover-text">Ноксус – агрессивная империя, ведущая активные завоевания.</div>
+                </div>
+                <div class="hover-image">
+                    <img src="https://cmsassets.rgpub.io/sanity/images/dsfx7636/universe_live/be6da1aaa258f31e33687d64a692aff94926e65a-1920x1080.jpg" alt="Ноксус 2">
+                    <div class="hover-text">Магию в Ноксусе считают еще одним инструментом для достижения власти. Обладатели магического дара здесь в почете; магов ищут и даже специально привозят из других земель, чтобы отполировать их умения и поставить на службу империи.</div>
+                </div>
+                <div class="hover-image">
+                    <img src="https://cmsassets.rgpub.io/sanity/images/dsfx7636/universe_live/fb300ca74eea40f058e348f4e376293f38b8b68d-1920x962.jpg" alt="Ноксус 3">
+                    <div class="hover-text">Жизнь – вечный бой
+                        Ноксианцы ценят силу превыше всего и верят, что сохранить ее можно лишь в постоянных сражениях.</div>
+                </div>
+                <div class="hover-image">
+                    <img src="https://cmsassets.rgpub.io/sanity/images/dsfx7636/universe_live/355a5e1a7319eab08e348d75fbcfb4979986cd21-1920x853.jpg" alt="Ноксус 4">
+                    <div class="hover-text">Несколько городов и портов на севере Шуримы добровольно присоединилось к империи. Коренное население живет в относительном мире с ноксианцами и считает натуральный оброк и соглашение о преференциальной торговле разумной платой за защиту от грабителей.</div>
+                </div>
+            </section>
+        
+        </body>
+        </html>
+
+        <!-- Видео -->
+        <section class="py-12 text-center">
+            <h2 class="text-3xl font-bold">Видео о Ноксусе</h2>
+            <iframe class="mt-6 w-full max-w-4xl h-96 mx-auto" src="https://www.youtube.com/embed/I76wvt0aEE4" allowfullscreen></iframe>
+        </section>
+
+        <!-- Футер -->
+        <footer class="bg-black bg-opacity-80 p-6 text-center mt-12">
+            <div>
+                <a href="https://www.leagueoflegends.com" class="text-red-600">Официальный сайт</a> |
+                <a href="https://www.youtube.com/user/RiotGamesInc" class="text-red-600">YouTube Riot Games</a>
+            </div>
+            <p class="mt-4">© 2025 League of Legends. Все права защищены.</p>
+        </footer>
+    </main>
+</body>
+</html>
